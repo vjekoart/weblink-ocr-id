@@ -15,8 +15,13 @@ import 'microblink/dist/microblink.js'
 
 declare const Microblink: any
 
+export interface UiErrorEvent {
+    error: any;
+    message: string;
+}
+
 @Component
-export default class AppMicroblinkUI extends Vue {
+export class AppMicroblinkUI extends Vue {
     mounted () {
         // Default endpoint is used
         // Microblink.SDK.SetEndpoint('https://api.microblink.com')
@@ -41,16 +46,21 @@ export default class AppMicroblinkUI extends Vue {
                 }
 
                 if (results.length < 1) {
-                    this.$emit('mrz-event-error', 'Could not find data!')
+                    this.$emit('mrz-event-error', {
+                        message: 'Could not find data!',
+                        error: null
+                    })
                 } else {
                     // Pass 'rawMRZString' property from 'MRTD' recognizer as component output
                     this.$emit('mrz-event', results[0].result.rawMRZString)
                 }
             },
 
-            onScanError: (error: any) => {
-                console.log('onScanError', error)
-                this.$emit('mrz-event-error', 'Could not extract data!')
+            onScanError: (scanError: any) => {
+                this.$emit('mrz-event-error', {
+                    message: 'Could not extract data!',
+                    error: scanError
+                })
             }
         })
 

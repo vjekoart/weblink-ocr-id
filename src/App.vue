@@ -21,7 +21,7 @@ import {
 import AppHeader from './components/Header.vue'
 import AppErrorMessage from './components/ErrorMessage.vue'
 import AppIdForm from './components/IdForm.vue'
-import AppMicroblinkUI from './components/MicroblinkUI.vue'
+import { AppMicroblinkUI, UiErrorEvent } from './components/MicroblinkUI.vue'
 
 @Component({
     components: {
@@ -36,24 +36,13 @@ export default class App extends Vue {
     mrzErrorMessage: string|null = null
     mrzInformation: MrzInformation|null = null
 
-    mounted () {
-        /*
-        const testMrz = `IOHRV112043571442486475501<<<<
-9406214M2007025HRV<<<<<<<<<<<4
-ARTIC<<VJEKOSLAV<IVO<<<<<<<<<<`
-
-        const results = this.mrz.extractMrzInformation(testMrz)
-        this.mrzInformation = results
-        */
-    }
-
     parseMrz (event: string) {
         this.mrzErrorMessage = null
         this.mrzInformation = this.mrz.extractMrzInformation(event)
     }
 
-    mrzError (event: string) {
-        this.mrzErrorMessage = event
+    mrzError (event: UiErrorEvent) {
+        this.mrzErrorMessage = event.message
         this.mrzInformation = null
     }
 }

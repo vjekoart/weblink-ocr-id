@@ -2,7 +2,7 @@
 
 Generated with `@vue/cli 4.2.2` on `node.js v10.15`.
 
-Live version is available at *TBA*.
+Live version is available at [weblink-ocr-id.web.app](https://weblink-ocr-id.web.app/).
 
 ## Usage
 
