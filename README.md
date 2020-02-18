@@ -1,24 +1,38 @@
-# weblink-ocrid
+# Weblink OCR ID
 
-## Project setup
+Generated with `@vue/cli 4.2.2` on `node.js v10.15`.
+
+Live version is available at *TBA*.
+
+## Usage
+
 ```
+# Install dependencies
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Add authorization token to 'src/environment.ts' file
 
-### Compiles and minifies for production
-```
+# Compile and minify
 npm run build
+
+# Serve 'dist' directory with HTTP server, e.g. http-server dist/
 ```
 
-### Lints and fixes files
+## Development
+
 ```
+# Install dependencies
+npm install
+
+# Add authorization token to 'src/environment.ts' file
+
+# Compile and hot-reload for development
+npm run serve
+
+# Lint and fix files
 npm run lint
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
