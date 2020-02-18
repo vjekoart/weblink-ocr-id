@@ -15,13 +15,8 @@ import 'microblink/dist/microblink.js'
 
 declare const Microblink: any
 
-export interface UiErrorEvent {
-    error: any;
-    message: string;
-}
-
 @Component
-export class AppMicroblinkUI extends Vue {
+export default class AppMicroblinkUI extends Vue {
     mounted () {
         // Default endpoint is used
         // Microblink.SDK.SetEndpoint('https://api.microblink.com')

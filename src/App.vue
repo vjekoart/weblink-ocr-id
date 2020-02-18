@@ -21,7 +21,7 @@ import {
 import AppHeader from './components/Header.vue'
 import AppErrorMessage from './components/ErrorMessage.vue'
 import AppIdForm from './components/IdForm.vue'
-import { AppMicroblinkUI, UiErrorEvent } from './components/MicroblinkUI.vue'
+import AppMicroblinkUI from './components/MicroblinkUI.vue'
 
 @Component({
     components: {
@@ -41,7 +41,7 @@ export default class App extends Vue {
         this.mrzInformation = this.mrz.extractMrzInformation(event)
     }
 
-    mrzError (event: UiErrorEvent) {
+    mrzError (event: any) {
         this.mrzErrorMessage = event.message
         this.mrzInformation = null
     }
